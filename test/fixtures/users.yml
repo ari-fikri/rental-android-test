@@ -4,16 +4,8 @@ one:
   name: MyString
   address: MyText
   mobile: MyString
-  index: MyString
-  new: MyString
-  edit: MyString
-  destroy: MyString
 
 two:
   name: MyString
   address: MyText
   mobile: MyString
-  index: MyString
-  new: MyString
-  edit: MyString
-  destroy: MyString
