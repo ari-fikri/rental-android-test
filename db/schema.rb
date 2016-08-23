@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819110353) do
+ActiveRecord::Schema.define(version: 20160822034638) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "brand",        limit: 255
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20160819110353) do
     t.decimal  "fare",                     precision: 8
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "availability", limit: 255
   end
+
+  add_index "cars", ["availability"], name: "index_cars_on_availability", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
