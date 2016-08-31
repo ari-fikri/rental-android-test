@@ -18,5 +18,8 @@ class Car < ActiveRecord::Base
         self.license_plat = self.license_plat.gsub(/\s+/, "").upcase
     end
 
+    def full_identity
+      return brand + " " + model + " " + license_plat
+    end
 
 end
