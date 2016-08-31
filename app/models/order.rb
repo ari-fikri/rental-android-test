@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
     validates :start_date, :end_date, :car, :user, presence: true
 
     validate :start_date_must_be_less_than_end_date, :start_date_should_be_more_1_to_7_days_from_today, :rent_duration_max_3_days,
-        :booked?
+        :booked?, :booked_another_car?
 
     after_save :update_car_availability
 
@@ -29,6 +29,7 @@ class Order < ActiveRecord::Base
         (self.start_date - other.end_date) * (other.start_date - self.end_date) >= 0
     end
 
+    # check if car is booked at specified date range
     def booked?
         return if self.car.blank?
         #select all rent_dates for this car which start_date is higher than today
@@ -40,9 +41,16 @@ class Order < ActiveRecord::Base
         end
     end
 
-    #TODO
-    #    * Client is not rent another car at selected rent date.
-    #    * Car is not rented at selected rent date.
+    # Client is not rent another car at selected rent date.
+    def booked_another_car?
+        return if self.user.blank?
+        Order.joins(:car).joins(:user).where("start_date > ? and users.id = ?", Date.today, self.user.id).each do | existing_rent_date |
+            if overlaps?(existing_rent_date)
+                errors.add(:user, "is already booked another car within date range") 
+                break
+            end
+        end
+    end
 
     def update_car_availability
         car.availability = 'RENTED'
