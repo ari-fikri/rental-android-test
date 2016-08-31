@@ -44,7 +44,7 @@ end
 innova_2 = Car.find_or_create_by(license_plat: 'D559MA') do |c|
     c.brand = 'Toyota'
     c.model = "Innova"
-    c.license_plat ='D8559MA'
+    c.license_plat ='D559MA'
     c.fare ='1800000'
 end
 
@@ -64,39 +64,39 @@ end
 
 # ORDERS
 
-order_1 = Order.where(:start_date => '2016-05-10', :end_date => '2016-07-10', :user => tri, :car => innova_1).first_or_create do |order|
-    order.start_date = '2016-05-10'
-    order.end_date = '2016-07-10'
+order_1 = Order.where(:start_date => '2016-09-01', :end_date => '2016-09-03', :user => tri, :car => innova_1).first_or_create do |order|
+    order.start_date = '2016-09-01'
+    order.end_date = '2016-09-03'
     order.user = tri
     order.car = innova_1
 end
 
-order_2 = Order.where(:start_date => '2016-02-10', :end_date => '2016-10-10', :user => ricky, :car => innova_2).first_or_create do |order|
-    order.start_date = '2016-02-10'
-    order.end_date = '2016-10-10'
+order_2 = Order.where(:start_date => '2016-09-03', :end_date => '2016-09-04', :user => ricky, :car => innova_2).first_or_create do |order|
+    order.start_date = '2016-09-03'
+    order.end_date = '2016-09-04'
     order.user = ricky
     order.car = innova_2
 end
 
-order_3 = Order.where(:start_date => '2016-04-10', :end_date => '2016-05-10', :user => ricky, :car => ertiga_1).first_or_create do |order|
-    order.start_date = '2016-04-10'
-    order.end_date = '2016-05-10'
+order_3 = Order.where(:start_date => '2016-09-01', :end_date => '2016-09-02', :user => ricky, :car => ertiga_1).first_or_create do |order|
+    order.start_date = '2016-09-01'
+    order.end_date = '2016-09-02'
     order.user = ricky
     order.car = ertiga_1
 end
 
-order_4 = Order.where(:start_date => '2016-06-01', :end_date => '2016-06-10', :user => ricky, :car => ertiga_1).first_or_create do |order|
-    order.start_date = '2016-06-01'
-    order.end_date = '2016-06-10'
-    order.user = ricky
-    order.car = ertiga_1
+order_4 = Order.where(:start_date => '2016-09-01', :end_date => '2016-09-04', :user => yusuf, :car => kijang).first_or_create do |order|
+    order.start_date = '2016-09-01'
+    order.end_date = '2016-09-04'
+    order.user = yusuf
+    order.car = kijang
 end
 
-order_5 = Order.where(:start_date => '2016-06-20', :end_date => '2016-06-23', :user => ricky, :car => ertiga_1).first_or_create do |order|
-    order.start_date = '2016-06-20'
-    order.end_date = '2016-06-23'
-    order.user = ricky
-    order.car = ertiga_1
+order_5 = Order.where(:start_date => '2016-09-05', :end_date => '2016-09-06', :user => yusuf, :car => kijang).first_or_create do |order|
+    order.start_date = '2016-09-05'
+    order.end_date = '2016-09-06'
+    order.user = yusuf
+    order.car = kijang
 end
 
 

@@ -7,8 +7,6 @@ class Order < ActiveRecord::Base
     validate :start_date_must_be_less_than_end_date, :start_date_should_be_more_1_to_7_days_from_today, :rent_duration_max_3_days,
         :booked?, :booked_another_car?
 
-    after_save :update_car_availability
-
     def start_date_must_be_less_than_end_date
         errors.add(:start_date, "should be less than End date") unless start_date < end_date
     end
@@ -52,7 +50,4 @@ class Order < ActiveRecord::Base
         end
     end
 
-    def update_car_availability
-        car.availability = 'RENTED'
-    end
 end

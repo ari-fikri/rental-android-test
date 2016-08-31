@@ -20,10 +20,7 @@ ActiveRecord::Schema.define(version: 20160823101004) do
     t.decimal  "fare",                     precision: 8
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "availability", limit: 255
   end
-
-  add_index "cars", ["availability"], name: "index_cars_on_availability", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.date     "start_date"
