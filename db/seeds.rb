@@ -62,3 +62,42 @@ kijang = Car.find_or_create_by(license_plat: 'B7832AB') do |c|
     c.fare ='1100000'
 end
 
+# ORDERS
+
+order_1 = Order.where(:start_date => '2016-05-10', :end_date => '2016-07-10', :user => tri, :car => innova_1).first_or_create do |order|
+    order.start_date = '2016-05-10'
+    order.end_date = '2016-07-10'
+    order.user = tri
+    order.car = innova_1
+end
+
+order_2 = Order.where(:start_date => '2016-02-10', :end_date => '2016-10-10', :user => ricky, :car => innova_2).first_or_create do |order|
+    order.start_date = '2016-02-10'
+    order.end_date = '2016-10-10'
+    order.user = ricky
+    order.car = innova_2
+end
+
+order_3 = Order.where(:start_date => '2016-04-10', :end_date => '2016-05-10', :user => ricky, :car => ertiga_1).first_or_create do |order|
+    order.start_date = '2016-04-10'
+    order.end_date = '2016-05-10'
+    order.user = ricky
+    order.car = ertiga_1
+end
+
+order_4 = Order.where(:start_date => '2016-06-01', :end_date => '2016-06-10', :user => ricky, :car => ertiga_1).first_or_create do |order|
+    order.start_date = '2016-06-01'
+    order.end_date = '2016-06-10'
+    order.user = ricky
+    order.car = ertiga_1
+end
+
+order_5 = Order.where(:start_date => '2016-06-20', :end_date => '2016-06-23', :user => ricky, :car => ertiga_1).first_or_create do |order|
+    order.start_date = '2016-06-20'
+    order.end_date = '2016-06-23'
+    order.user = ricky
+    order.car = ertiga_1
+end
+
+
+
